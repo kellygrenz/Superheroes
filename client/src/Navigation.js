@@ -17,6 +17,7 @@ const Navigation = () =>
   <nav style={style.navBox}>
     <Link to='/'>Home</Link>
     <Link to='/heroes'>Heroes</Link>
+    <Link to='/create-hero'>Create Hero</Link>
   </nav>
 
 export default Navigation
