@@ -1,13 +1,15 @@
 import React, {Component} from 'react'
+import HeroForm from './HeroForm'
 import $ from 'jquery'
 import {
   withRouter 
 } from 'react-router-dom'
 
+
 class CreateHeroContainer extends Component {
   state = {
     name: undefined, 
-    superpower: undefined, 
+    superPower: undefined, 
     img: undefined, 
     universe: undefined, 
     nemesis: undefined
@@ -29,7 +31,6 @@ class CreateHeroContainer extends Component {
       method: 'POST',
       data: hero
     }).done((response) => {
-      console.log('inside response')
       this.props.loadHeroesFromServer()
       this.props.history.push('/heroes')
     })
@@ -38,34 +39,13 @@ class CreateHeroContainer extends Component {
   render() {
     return (
       <div>
-        <h2>Create Hero Component now</h2>
-        <form>
-          <div>
-            <label>name of superhero:</label>
-            <input type='text' onChange={this.onNameChange}/>
-          </div>
-
-          <div>
-            <label>superpower:</label>
-            <input type='text' onChange={this.onSuperPowerChange}/>
-          </div>
-
-          <div>
-            <label>Image:</label>
-            <input type='text' onChange={this.onImageChange}/>
-          </div>
-
-          <div>
-            <label>Universe</label>
-            <input type='text' onChange={this.onUniverseChange}/>
-          </div>
-
-          <div>
-            <label>Nemesis:</label>
-            <input type='text' onChange={this.onNemesisChange}/>
-          </div>
-          <button onClick={this.handleSubmit}> Submit Hero </button>
-        </form>
+        <h2>Create Your Own Superhero!</h2>
+        <HeroForm 
+          onNameChange={this.onNameChange}
+          onSuperPowerChange={this.onSuperPowerChange}
+          onImageChange={this.onImageChange}
+          onUniverseChange={this.onUniverseChange}
+        />
       </div>
     )
   }

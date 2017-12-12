@@ -2,7 +2,7 @@ import React from 'react'
 
 const Heroes = ({heroes}) => 
   <div>
-    <h4>Heroes Component</h4>
+    <h4>All Super Heroes</h4>
     {
       heroes.map(item => {
         return(

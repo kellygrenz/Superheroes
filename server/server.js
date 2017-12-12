@@ -16,8 +16,8 @@ app.use(require('./config/error-handler'))
 
 
 app.post('/api/heroes', (req, res) => {
-  const {name, superPower, img, universe, nemesis} = req.body
-  const newHero = {name, superPower, img, universe, nemesis}
+  const {name, superPower, img, universe} = req.body
+  const newHero = {name, superPower, img, universe}
 
   SuperHero (newHero).save((err, savedHero) => {
     if (err) {
@@ -33,7 +33,7 @@ app.get('/api/heroes', (req, res) => {
     if (err) {
       res.json({ error: err })
     } else {
-      res.json({msg: 'SUCCESS', heroes})
+      res.json({msg: 'SUCCESS', data: heroes})
     }
   })
 })

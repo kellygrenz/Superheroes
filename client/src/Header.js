@@ -27,7 +27,7 @@ const style = {
 const Header = () =>
 <div style={style.headerContainer}>
   <h1 style={style.headline}>Super Heroes Annonymous</h1>
-  <img src="images/pow.png" />
+  <img src="images/pow.png" alt="test"/>
   <h2 style={style.h2}>No Villains Allowed</h2>
 </div>
 
