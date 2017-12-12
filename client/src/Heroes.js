@@ -6,7 +6,10 @@ const Heroes = ({heroes}) =>
     {
       heroes.map(item => {
         return(
-          <h2>{item.name}</h2>
+          <div>
+            <h2>{item.name}</h2>
+            <h3>{item.superPower}</h3>
+          </div>
         )
       })
     }
