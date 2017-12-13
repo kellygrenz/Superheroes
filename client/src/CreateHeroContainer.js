@@ -8,8 +8,10 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-between',
-    width: '50%',
+    width: '70%',
     marginTop: '20px',
+    background: '#E4F1FE',
+    padding: '20px'
     
   },
   inputElement: {

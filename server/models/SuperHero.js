@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const SuperHeroSchema = new Schema({
-  name: String,
-  universe: String,
+const SuperHero = new Schema({
+  name: { type: String, required: true },
   superPower: String,
-  img: String,
-  nemasis: String
+  img: { type: String, required: true },
+  universe: String,
+  nemesis: String
 })
 
-module.exports = mongoose.model('SuperHero', SuperHeroSchema)
+module.exports = mongoose.model('SuperHero', SuperHero)

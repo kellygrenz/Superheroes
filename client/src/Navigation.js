@@ -5,7 +5,7 @@ import {
 
 const styles = {
   navBox: {
-    background: '#be1f24',
+    background: '#013243',
     height: '50px',
     display: 'flex',
     flexDirection: 'row',
@@ -17,7 +17,7 @@ const styles = {
     textDecoration: 'none',
     fontSize: '20px',
     color: 'white',
-    fontFamily: 'Shrikhand, cursive',
+    fontFamily: 'Roboto Condensed, sans-serif'
   }
 }
 

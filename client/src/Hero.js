@@ -2,21 +2,19 @@ import React from 'react'
 
 const styles = {
   container: {
-    borderRadius: '5px',
     width: 'calc(33% - 20px)',
     display: 'flex',
     flexDirection: 'column',
-    background: '#87D37C',
+    background: '#E4F1FE',
     alignItems: 'center',
     marginTop: '3%',
     marginLeft: '10px',
     marginRight: '5px',
-    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
     paddingBottom: '10px',
     height: '300px'
   },
   image: {
-    maxWidth: '100%',
+    maxWidth: '80%',
     height: 'auto'
   },
   title: {
