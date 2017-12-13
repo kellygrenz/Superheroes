@@ -1,16 +1,29 @@
+
 import React from 'react'
+import Hero from './Hero'
+
+const styles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginTop: '0px',
+    margin: '10px',
+    width: '100vw',
+    background: '#fff',
+    padding: '30px'
+  }, 
+  heroCard: {
+    borderRadius: '5px',
+    background: '#87D37C'
+  }
+}
 
 const Heroes = ({heroes}) => 
-  <div>
-    <h4>All Super Heroes</h4>
+  <div style={styles.container}>
     {
-      heroes.map(item => {
-        return(
-          <div>
-            <h2>{item.name}</h2>
-            <h3>{item.superPower}</h3>
-          </div>
-        )
+      heroes.map(hero => {
+        return <Hero hero={hero} />
       })
     }
   </div>

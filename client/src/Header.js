@@ -6,7 +6,8 @@ const style = {
     alignItems: 'center',
     flexDirection: 'column',
     background: '#19B5FE',
-    padding: '30px'
+    padding: '30px',
+    width: '100vw'
   },
   headline: {
     display: 'flex',
@@ -26,9 +27,9 @@ const style = {
 
 const Header = () =>
 <div style={style.headerContainer}>
-  <h1 style={style.headline}>Super Heroes Annonymous</h1>
+  <h1 style={style.headline}>Super Heroes of the West</h1>
   <img src="images/pow.png" alt="test"/>
-  <h2 style={style.h2}>No Villains Allowed</h2>
+  <h2 style={style.h2}>And Villains Too...</h2>
 </div>
 
 export default Header

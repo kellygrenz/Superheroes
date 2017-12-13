@@ -7,46 +7,56 @@ import Home from './Home'
 import Heroes from './Heroes'
 import Navigation from './Navigation'
 import Header from './Header'
-import $ from 'jquery'
 import CreateHeroContainer from './CreateHeroContainer'
+import $ from 'jquery'
+
+const styles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+  }
+}
 
 class App extends Component {
   state = {
-    heroes: undefined
+    heroes: undefined,
+    name: undefined,
+    superpower: undefined,
+    universe: undefined,
+    img: undefined,
+    nemesis: undefined
   }
 
-componentDidMount() {
-  this.loadHeroesFromServer()
-}
+  componentDidMount () {
+    this.loadSuperHeroesFromServer()
+  }
 
-loadHeroesFromServer = () => {
-  $.ajax({
-    url: '/api/heroes',
-    method: 'GET'
-  }).done((response) => {
-    console.log(response)
-    this.setState({heroes: response.heroes})
-  })
-}
+  loadSuperHeroesFromServer = () => {
+    $.ajax({
+      url: '/api/superheroes',
+      method: 'GET'
+    }).done(response => {
+      this.setState({ heroes: response.data })
+    })
+  }
 
   render () {
-      return (
-        <Router>
-          <div>
-            <Header />
-            <Navigation />
-            <Route exact path='/' component={Home} />
-            <Route path='/create-hero' render={() => <CreateHeroContainer loadHeroesFromServer={this.loadHeroesFromServer}/>} />
-            
-            {
-              this.state.heroes
+    return (
+      <Router>
+        <div style={styles.container} >
+          <Navigation />
+          <Header />
+          <Route exact path='/' component={Home} />
+          <Route path='/create-hero' render={() => <CreateHeroContainer />} />
+          {
+            this.state.heroes
               ? <Route path='/heroes' render={() => <Heroes heroes={this.state.heroes} />} />
-              : 'No Heroes'
-            }
-           </div>
-        </Router>
-      )
-    }
+              : 'No heroes yet'
+          }
+        </div>
+      </Router>
+    )
   }
-
+}
 export default App

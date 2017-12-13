@@ -13,50 +13,53 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(require('./config/error-handler'))
 
+app.post('/api/superheroes', (req, res) => {
+  const {name, universe, superPower, img, nemesis} = req.body
+  const newSuperHero = {
+    name,
+    universe,
+    superPower,
+    nemesis,
+    img
+  }
 
-
-app.post('/api/heroes', (req, res) => {
-  const {name, superPower, img, universe} = req.body
-  const newHero = {name, superPower, img, universe}
-
-  SuperHero (newHero).save((err, savedHero) => {
+  SuperHero(newSuperHero).save((err, hero) => {
     if (err) {
-      res.json({error: err})
+      res.json({ msg: err })
     } else {
-      res.json({ msg: 'SUCCESS', data: savedHero})
+      res.json({ msg: 'Success', data: hero })
     }
   })
 })
 
-app.get('/api/heroes', (req, res) => {
-  SuperHero.find((err, heroes) => {
+app.get('/api/superheroes', (req, res) => {
+  SuperHero.find((err, superheroes) => {
     if (err) {
       res.json({ error: err })
     } else {
-      res.json({msg: 'SUCCESS', data: heroes})
+      res.json({ msg: 'Success!', data: superheroes })
     }
   })
 })
 
-app.get('/api/heroes/:heroId', (req, res) => {
+app.get('/api/superheroes/:heroId', (req, res) => {
   const heroId = req.params.heroId
-  SuperHero.findById({_id: heroId}, (err, hero) => {
-    if (err){
-      res.json({error: err})
-    }else {
-      res.json({ msg: 'SUCCESS', hero})
+  SuperHero.findById({ _id: heroId }, (err, hero) => {
+    if (err) {
+      res.json({ msg: err })
+    } else {
+      res.json({ msg: 'Success! Hero found', data: hero })
     }
   })
 })
 
-
-app.delete('/api/heroes/:heroId', (req, res) => {
-  const deleteId = req.params.heroId
-  SuperHero.remove({_id: deleteId}, (err, hero) => {
+app.delete('/api/superheroes/:heroId', (req, res) => {
+  const heroId = req.params.heroId
+  SuperHero.remove({ _id: heroId }, (err, hero) => {
     if (err) {
-      res.json({ error: err})
+      res.json({ msg: err })
     } else {
-      res.json({ msg: 'your superhero was deleted', hero})
+      res.json({ msg: 'Hero deleted!', data: {} })
     }
   })
 })

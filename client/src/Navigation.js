@@ -1,23 +1,31 @@
 import React from 'react'
 import {
   Link
- } from 'react-router-dom'
+} from 'react-router-dom'
 
- const style = {
-   navBox: {
-     padding: '40px',
-     borderTop: '2px dashed red'
-   },
-   linkItem: {
-     
-   }
- }
+const styles = {
+  navBox: {
+    background: '#be1f24',
+    height: '50px',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    width: '100vw'
+  },
+  linkItem: {
+    textDecoration: 'none',
+    fontSize: '20px',
+    color: 'white',
+    fontFamily: 'Shrikhand, cursive',
+  }
+}
 
 const Navigation = () =>
-  <nav style={style.navBox}>
-    <Link to='/'>Home</Link>
-    <Link to='/heroes'>Heroes</Link>
-    <Link to='/create-hero'>Create Hero</Link>
+  <nav style={styles.navBox}>
+    <Link to='/' style={styles.linkItem} >Home</Link>
+    <Link to='/heroes' style={styles.linkItem} >Heroes</Link>
+    <Link to='/create-hero' style={styles.linkItem} >Create a New Hero</Link>
   </nav>
 
 export default Navigation
